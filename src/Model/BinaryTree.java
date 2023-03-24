@@ -1,5 +1,5 @@
 package Model;
-
+//Extraído de: https://www.baeldung.com/java-binary-tree
 public class BinaryTree{
 
 
@@ -9,7 +9,7 @@ public class BinaryTree{
 
     boolean alreadyPrinted;
 
-    //Extraído de: https://www.baeldung.com/java-binary-tree
+
 
     public BinaryTree() {
         data = null;
