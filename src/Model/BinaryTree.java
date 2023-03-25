@@ -1,16 +1,34 @@
 package Model;
+
+/**
+ * The type Binary tree.
+ */
 //Extraído de: https://www.baeldung.com/java-binary-tree
 public class BinaryTree{
 
 
+    /**
+     * The Data.
+     */
     Association<String,String> data;
+    /**
+     * The Left.
+     */
     BinaryTree left;
+    /**
+     * The Right.
+     */
     BinaryTree right;
 
+    /**
+     * The Already printed.
+     */
     boolean alreadyPrinted;
 
 
-
+    /**
+     * Instantiates a new Binary tree.
+     */
     public BinaryTree() {
         data = null;
         left = null;
@@ -18,6 +36,11 @@ public class BinaryTree{
         alreadyPrinted = false;
     }
 
+    /**
+     * Instantiates a new Binary tree.
+     *
+     * @param data the data
+     */
     public BinaryTree(Association<String,String> data) {
         this.data = data;
         left = null;
@@ -25,16 +48,35 @@ public class BinaryTree{
         alreadyPrinted = false;
     }
 
+    /**
+     * Sets data.
+     *
+     * @param data the data
+     */
     public void setData(Association<String,String> data) {
         this.data = data;
     }
 
+    /**
+     * Gets value.
+     *
+     * @return the value
+     */
     public Association<String,String> getValue() {
         return data;
     }
 
+    /**
+     * Insert.
+     *
+     * @param value the value
+     */
     //Metodo para insertar nodos
     public void insert(Association<String,String> value) {
+
+        if (value.getKey() == null) {
+            return;
+        }
 
         int res = stringCompare(value.getKey(), data.getKey());
 
@@ -57,6 +99,12 @@ public class BinaryTree{
 
     }
 
+    /**
+     * Contains boolean.
+     *
+     * @param value the value
+     * @return the boolean
+     */
     //Metodo para encontrar un nodo
     public boolean contains(String value) {
 
@@ -82,6 +130,12 @@ public class BinaryTree{
         }
     }
 
+    /**
+     * Get string.
+     *
+     * @param key the key
+     * @return the string
+     */
     //Metodo que hace las traducciones
     public String get(String key) {
 
@@ -102,6 +156,9 @@ public class BinaryTree{
 
     }
 
+    /**
+     * Print in order.
+     */
     //Metodo para mostrar los nodos en orden
     public void printInOrder() {
         if (left != null) {
@@ -118,6 +175,13 @@ public class BinaryTree{
         }
     }
 
+    /**
+     * String compare int.
+     *
+     * @param str1 the str 1
+     * @param str2 the str 2
+     * @return the int
+     */
     //Metodo que compara las asociaciones
     public int stringCompare(String str1, String str2) {
 
@@ -140,5 +204,31 @@ public class BinaryTree{
         }
     }
 
-}
+    /**
+     * Search binary tree.
+     *
+     * @param key the key
+     * @return the binary tree
+     */
+    public BinaryTree search(String key) {
+        int res = stringCompare(key, data.getKey());
 
+        if (res == 0) {
+            return this;
+
+        } else if (res < 0) {
+            if (left == null) {
+                return null;
+            } else {
+                return left.search(key);
+            }
+        } else {
+            if (right == null) {
+                return null;
+            } else {
+                return right.search(key);
+            }
+        }
+    }
+
+}
