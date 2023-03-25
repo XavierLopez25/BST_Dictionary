@@ -8,8 +8,17 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
+/**
+ * The type Driver program.
+ */
 public class DriverProgram {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws FileNotFoundException the file not found exception
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         BinaryTree dicc = new BinaryTree();

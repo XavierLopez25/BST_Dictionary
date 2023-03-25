@@ -6,8 +6,23 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+/**
+ * The type Translator.
+ */
 public class Translator {
 
+    /**
+     * Translate string.
+     *
+     * @param DICTIONARY the dictionary
+     * @param TEXT       the text
+     * @param binaryTree the binary tree
+     * @param asc        the asc
+     * @param op         the op
+     * @return the string
+     * @throws FileNotFoundException the file not found exception
+     */
     public static String translate(String DICTIONARY, String TEXT, BinaryTree binaryTree, Association<String, String> asc, int op) throws FileNotFoundException {
 
         FileReader fr = new FileReader(DICTIONARY);
